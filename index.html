@@ -364,6 +364,44 @@
       font-style: italic;
     }
 
+    .menu-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      margin-bottom: 28px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .menu-tabs::-webkit-scrollbar { display: none; }
+
+    .menu-tab {
+      flex: 0 0 auto;
+      padding: 9px 18px;
+      border-radius: 100px;
+      border: 2px solid #ebebeb;
+      background: var(--blanco);
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #888;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .menu-tab:hover:not(.activo) { border-color: var(--naranja); color: var(--negro); }
+    .menu-tab.activo { background: var(--negro); border-color: var(--negro); color: var(--blanco); }
+
+    .menu-panel { display: none; }
+    .menu-panel.activo {
+      display: block;
+      animation: fadeTab 0.25s ease;
+    }
+    @keyframes fadeTab {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     /* ════════════════════════════
        RESEÑAS
     ════════════════════════════ */
@@ -684,8 +722,19 @@
         <p>Auténtico estilo Tijuana · tacos, burros, mulas, nachos y más</p>
       </div>
 
-      <!-- TACOS -->
-      <div class="menu-bloque">
+      <div class="menu-tabs">
+        <button class="menu-tab activo" data-tab="tab-tacos">🌮 Tacos</button>
+        <button class="menu-tab" data-tab="tab-quesatacos">🧀 Quesatacos</button>
+        <button class="menu-tab" data-tab="tab-mulas">🌯 Mulas</button>
+        <button class="menu-tab" data-tab="tab-burros">🌯 Burros</button>
+        <button class="menu-tab" data-tab="tab-nachos">🧂 Nachos</button>
+        <button class="menu-tab" data-tab="tab-caldos">🍲 Caldos</button>
+        <button class="menu-tab" data-tab="tab-cocteleria">🍹 Coctelería</button>
+        <button class="menu-tab" data-tab="tab-cervezas">🍻 Cervezas</button>
+        <button class="menu-tab" data-tab="tab-compartir">📦 Compartir</button>
+      </div>
+
+      <div class="menu-panel activo" id="tab-tacos">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🌮 Tacos de Tijuana <span class="menu-cat-precio">$2.500 c/u</span></div>
           <div class="menu-cat-desc">tortilla de maíz · cebolla · cilantro · frijol · salsa</div>
@@ -720,8 +769,7 @@
         <p class="menu-mas">También: Chorizo · Tripa · y más opciones en el local</p>
       </div>
 
-      <!-- QUESATACOS -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-quesatacos">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🧀 Quesatacos <span class="menu-cat-precio">$4.500 c/u</span></div>
           <div class="menu-cat-desc">doble tortilla de maíz · cebolla · cilantro · salsa</div>
@@ -739,8 +787,7 @@
         </div>
       </div>
 
-      <!-- MULAS -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-mulas">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🌯 Mulas <span class="menu-cat-precio">$14.000 c/u</span></div>
           <div class="menu-cat-desc">queso · frijol · cebolla · cilantro · salsas · palta</div>
@@ -754,8 +801,7 @@
         </div>
       </div>
 
-      <!-- BURROS -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-burros">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🌯 Burros <span class="menu-cat-precio">desde $9.500</span></div>
           <div class="menu-cat-desc">con frijol · pico de gallo · salsas · palta</div>
@@ -781,8 +827,7 @@
         </div>
       </div>
 
-      <!-- NACHOS -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-nachos">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🧂 Nachos <span class="menu-cat-precio">desde $5.500</span></div>
           <div class="menu-cat-desc">queso · cebolla · tomate · cilantro · crema · salsa de palta</div>
@@ -808,8 +853,7 @@
         </div>
       </div>
 
-      <!-- CALDOS -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-caldos">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🍲 Caldos de Birria</div>
         </div>
@@ -827,8 +871,7 @@
         </div>
       </div>
 
-      <!-- COCTELERÍA -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-cocteleria">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🍹 Coctelería Mexicana</div>
         </div>
@@ -857,8 +900,7 @@
         </div>
       </div>
 
-      <!-- CERVEZAS -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-cervezas">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">🍻 Cervezas & Micheladas</div>
         </div>
@@ -884,8 +926,7 @@
         </div>
       </div>
 
-      <!-- PARA COMPARTIR -->
-      <div class="menu-bloque">
+      <div class="menu-panel" id="tab-compartir">
         <div class="menu-categoria">
           <div class="menu-cat-titulo">📦 Para Compartir</div>
         </div>
@@ -1036,6 +1077,16 @@
       { threshold: 0.08 }
     );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Tabs menú ──
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('activo'));
+        document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('activo'));
+        tab.classList.add('activo');
+        document.getElementById(tab.dataset.tab).classList.add('activo');
+      });
+    });
 
   </script>
 
