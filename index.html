@@ -364,16 +364,58 @@
       font-style: italic;
     }
 
+    .menu-tabs-wrap {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
     .menu-tabs {
       display: flex;
       gap: 8px;
       overflow-x: auto;
       scrollbar-width: none;
       padding-bottom: 4px;
-      margin-bottom: 28px;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
     .menu-tabs::-webkit-scrollbar { display: none; }
+
+    .menu-tabs-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-60%);
+      z-index: 2;
+      background: var(--blanco);
+      border: 2px solid #ebebeb;
+      color: var(--negro);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: border-color 0.2s, opacity 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .menu-tabs-arrow:hover { border-color: var(--naranja); }
+    .menu-tabs-arrow.oculto { opacity: 0; pointer-events: none; }
+    .menu-tabs-arrow.izq { left: 0; }
+    .menu-tabs-arrow.der { right: 0; }
+
+    .menu-tabs-wrap::before,
+    .menu-tabs-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 4px;
+      width: 40px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .menu-tabs-wrap::before { left: 0;  background: linear-gradient(to right, var(--blanco), transparent); }
+    .menu-tabs-wrap::after  { right: 0; background: linear-gradient(to left,  var(--blanco), transparent); }
 
     .menu-tab {
       flex: 0 0 auto;
@@ -722,16 +764,20 @@
         <p>Auténtico estilo Tijuana · tacos, burros, mulas, nachos y más</p>
       </div>
 
-      <div class="menu-tabs">
-        <button class="menu-tab activo" data-tab="tab-tacos">🌮 Tacos</button>
-        <button class="menu-tab" data-tab="tab-quesatacos">🧀 Quesatacos</button>
-        <button class="menu-tab" data-tab="tab-mulas">🌯 Mulas</button>
-        <button class="menu-tab" data-tab="tab-burros">🌯 Burros</button>
-        <button class="menu-tab" data-tab="tab-nachos">🧂 Nachos</button>
-        <button class="menu-tab" data-tab="tab-caldos">🍲 Caldos</button>
-        <button class="menu-tab" data-tab="tab-cocteleria">🍹 Coctelería</button>
-        <button class="menu-tab" data-tab="tab-cervezas">🍻 Cervezas</button>
-        <button class="menu-tab" data-tab="tab-compartir">📦 Compartir</button>
+      <div class="menu-tabs-wrap">
+        <button class="menu-tabs-arrow izq oculto" id="tabArrowIzq" aria-label="Anterior">&#8592;</button>
+        <div class="menu-tabs" id="menuTabs">
+          <button class="menu-tab activo" data-tab="tab-tacos">🌮 Tacos</button>
+          <button class="menu-tab" data-tab="tab-quesatacos">🧀 Quesatacos</button>
+          <button class="menu-tab" data-tab="tab-mulas">🌯 Mulas</button>
+          <button class="menu-tab" data-tab="tab-burros">🌯 Burros</button>
+          <button class="menu-tab" data-tab="tab-nachos">🧂 Nachos</button>
+          <button class="menu-tab" data-tab="tab-caldos">🍲 Caldos</button>
+          <button class="menu-tab" data-tab="tab-cocteleria">🍹 Coctelería</button>
+          <button class="menu-tab" data-tab="tab-cervezas">🍻 Cervezas</button>
+          <button class="menu-tab" data-tab="tab-compartir">📦 Compartir</button>
+        </div>
+        <button class="menu-tabs-arrow der" id="tabArrowDer" aria-label="Siguiente">&#8594;</button>
       </div>
 
       <div class="menu-panel activo" id="tab-tacos">
@@ -945,8 +991,7 @@
       </div>
 
       <div class="menu-footer">
-        🌶️ Tres salsas de la casa: <strong>ají amarillo · jalapeño · chile de árbol</strong><br>
-        Precio promedio por persona: $10.000 – $15.000
+        🌶️ Tres salsas de la casa: <strong>ají amarillo · jalapeño · chile de árbol</strong>
       </div>
     </div>
   </section>
@@ -1087,6 +1132,23 @@
         document.getElementById(tab.dataset.tab).classList.add('activo');
       });
     });
+
+    // ── Flechas tabs ──
+    const tabsEl   = document.getElementById('menuTabs');
+    const arrowIzq = document.getElementById('tabArrowIzq');
+    const arrowDer = document.getElementById('tabArrowDer');
+    const SCROLL_STEP = 160;
+
+    function actualizarFlechas() {
+      arrowIzq.classList.toggle('oculto', tabsEl.scrollLeft <= 4);
+      arrowDer.classList.toggle('oculto', tabsEl.scrollLeft + tabsEl.clientWidth >= tabsEl.scrollWidth - 4);
+    }
+
+    arrowIzq.addEventListener('click', () => { tabsEl.scrollLeft -= SCROLL_STEP; });
+    arrowDer.addEventListener('click', () => { tabsEl.scrollLeft += SCROLL_STEP; });
+    tabsEl.addEventListener('scroll', actualizarFlechas);
+    window.addEventListener('resize', actualizarFlechas);
+    actualizarFlechas();
 
   </script>
 
