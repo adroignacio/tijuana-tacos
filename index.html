@@ -322,6 +322,48 @@
 
     .menu-footer strong { color: var(--negro); }
 
+    .menu-bloque { margin-bottom: 44px; }
+
+    .menu-categoria {
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #ebebeb;
+    }
+
+    .menu-cat-titulo {
+      font-family: var(--display);
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      color: var(--negro);
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .menu-cat-precio {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--rojo);
+      background: #fef0f0;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .menu-cat-desc {
+      font-size: 0.82rem;
+      color: #aaa;
+      margin-top: 6px;
+    }
+
+    .menu-mas {
+      font-size: 0.82rem;
+      color: #aaa;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
     /* ════════════════════════════
        RESEÑAS
     ════════════════════════════ */
@@ -639,51 +681,225 @@
       <div class="menu-header">
         <p class="eyebrow" style="color:#999;">Lo que pedimos</p>
         <h2>El menú</h2>
-        <p>Tortilla de maíz · cebolla · cilantro · frijol · salsa de palta · tres salsas de la casa</p>
+        <p>Auténtico estilo Tijuana · tacos, burros, mulas, nachos y más</p>
       </div>
 
-      <div class="menu-grid">
-        <div class="menu-card">
-          <span class="menu-badge">⭐ El favorito</span>
-          <div class="menu-nombre">Taco de Birria</div>
-          <div class="menu-desc">Carne mechada adobada, picantita</div>
-          <div class="menu-precio">$2.220</div>
+      <!-- TACOS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🌮 Tacos de Tijuana <span class="menu-cat-precio">$2.500 c/u</span></div>
+          <div class="menu-cat-desc">tortilla de maíz · cebolla · cilantro · frijol · salsa</div>
         </div>
-        <div class="menu-card">
-          <div class="menu-nombre">Taco de Adobada</div>
-          <div class="menu-desc">Cerdo adobado suave</div>
-          <div class="menu-precio">$2.200</div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <span class="menu-badge">⭐ El favorito</span>
+            <div class="menu-nombre">Birria</div>
+            <div class="menu-desc">Carne mechada adobada, picantita</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Adobada</div>
+            <div class="menu-desc">Cerdo adobado suave</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Asada</div>
+            <div class="menu-desc">Bisteck a la plancha</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Pollo</div>
+            <div class="menu-desc">Marinado estilo TJ</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Lengua</div>
+            <div class="menu-desc">A la plancha con mantequilla</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Champiñón / Queso</div>
+            <div class="menu-desc">Opción vegetariana</div>
+          </div>
         </div>
-        <div class="menu-card">
-          <div class="menu-nombre">Taco de Lengua</div>
-          <div class="menu-desc">Lengua a la plancha con mantequilla</div>
-          <div class="menu-precio">$2.200</div>
+        <p class="menu-mas">También: Chorizo · Tripa · y más opciones en el local</p>
+      </div>
+
+      <!-- QUESATACOS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🧀 Quesatacos <span class="menu-cat-precio">$4.500 c/u</span></div>
+          <div class="menu-cat-desc">doble tortilla de maíz · cebolla · cilantro · salsa</div>
         </div>
-        <div class="menu-card">
-          <div class="menu-nombre">Taco de Pastor</div>
-          <div class="menu-desc">Clásico estilo TJ</div>
-          <div class="menu-precio">$2.200</div>
+        <div class="menu-grid">
+          <div class="menu-card"><div class="menu-nombre">Birria</div></div>
+          <div class="menu-card"><div class="menu-nombre">Adobada</div></div>
+          <div class="menu-card"><div class="menu-nombre">Asada</div></div>
+          <div class="menu-card"><div class="menu-nombre">Pollo</div></div>
+          <div class="menu-card"><div class="menu-nombre">Lengua</div></div>
+          <div class="menu-card">
+            <div class="menu-nombre">Champiñón</div>
+            <div class="menu-desc">Opción vegetariana</div>
+          </div>
         </div>
-        <div class="menu-card">
-          <span class="menu-badge">Para compartir</span>
-          <div class="menu-nombre">Burro</div>
-          <div class="menu-desc">Grande, para compartir</div>
-          <div class="menu-precio">$9.000</div>
+      </div>
+
+      <!-- MULAS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🌯 Mulas <span class="menu-cat-precio">$14.000 c/u</span></div>
+          <div class="menu-cat-desc">queso · frijol · cebolla · cilantro · salsas · palta</div>
         </div>
-        <div class="menu-card">
-          <div class="menu-nombre">Nachos</div>
-          <div class="menu-desc">Con guacamole</div>
-          <div class="menu-precio">$5.500</div>
+        <div class="menu-grid">
+          <div class="menu-card"><div class="menu-nombre">Birria</div></div>
+          <div class="menu-card"><div class="menu-nombre">Adobada</div></div>
+          <div class="menu-card"><div class="menu-nombre">Asada</div></div>
+          <div class="menu-card"><div class="menu-nombre">Pollo</div></div>
+          <div class="menu-card"><div class="menu-nombre">Lengua</div></div>
         </div>
-        <div class="menu-card">
-          <div class="menu-nombre">Caldo de Birria</div>
-          <div class="menu-desc">Similar al consomé, para acompañar</div>
-          <div class="menu-precio">$2.500</div>
+      </div>
+
+      <!-- BURROS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🌯 Burros <span class="menu-cat-precio">desde $9.500</span></div>
+          <div class="menu-cat-desc">con frijol · pico de gallo · salsas · palta</div>
         </div>
-        <div class="menu-card">
-          <div class="menu-nombre">Agua de Jamaica</div>
-          <div class="menu-desc">Bebida fresca de la casa</div>
-          <div class="menu-precio">$1.900</div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-nombre">Birria</div>
+            <div class="menu-precio">$9.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Adobada</div>
+            <div class="menu-precio">$9.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Asada</div>
+            <div class="menu-precio">$9.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Mar y Birria</div>
+            <div class="menu-desc">Pica, con queso</div>
+            <div class="menu-precio">$12.500</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NACHOS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🧂 Nachos <span class="menu-cat-precio">desde $5.500</span></div>
+          <div class="menu-cat-desc">queso · cebolla · tomate · cilantro · crema · salsa de palta</div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-nombre">Nachos Clásicos</div>
+            <div class="menu-desc">Con la carne que elijas</div>
+            <div class="menu-precio">$10.000</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Nacho Guacamole</div>
+            <div class="menu-precio">$5.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Medio Nacho</div>
+            <div class="menu-precio">$7.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Mar y Birria</div>
+            <div class="menu-precio">$12.900</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALDOS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🍲 Caldos de Birria</div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-nombre">Caldo de Birria</div>
+            <div class="menu-desc">Consomé puro</div>
+            <div class="menu-precio">$2.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Caldo Preparado</div>
+            <div class="menu-desc">Con carne, totopos, cebolla, cilantro, frijol, tortilla y palta</div>
+            <div class="menu-precio">$5.000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COCTELERÍA -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🍹 Coctelería Mexicana</div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-nombre">Margarita Jamaica</div>
+            <div class="menu-precio">$6.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Spicy Margarita</div>
+            <div class="menu-precio">$7.000</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Mezcalita</div>
+            <div class="menu-desc">Con mezcal de Oaxaca</div>
+            <div class="menu-precio">$12.000</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Margarita Clásica</div>
+            <div class="menu-precio">$5.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Paloma</div>
+            <div class="menu-precio">$3.000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERVEZAS -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">🍻 Cervezas & Micheladas</div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-nombre">Schop (pinta)</div>
+            <div class="menu-precio">$4.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Corona</div>
+            <div class="menu-precio">$3.000</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Cervezas Artesanales</div>
+            <div class="menu-desc">Jester · Loa · Alameda</div>
+            <div class="menu-precio">$5.500</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Vaso Michelado</div>
+            <div class="menu-desc">Con todo</div>
+            <div class="menu-precio">$2.000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARA COMPARTIR -->
+      <div class="menu-bloque">
+        <div class="menu-categoria">
+          <div class="menu-cat-titulo">📦 Para Compartir</div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-nombre">Box 6 Tacos</div>
+            <div class="menu-desc">1 tipo de carne</div>
+            <div class="menu-precio">$18.000</div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-nombre">Todo Birria</div>
+            <div class="menu-desc">Caldo + mini quesabirria + 2 tacos</div>
+            <div class="menu-precio">$13.000</div>
+          </div>
         </div>
       </div>
 
